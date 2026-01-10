@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://j86m1a2axlda"]
+
+[ext_resource type="Script" uid="uid://cliefvln7h4og" path="res://settings_menu/SettingsMenu.cs" id="1_vlimw"]
+[ext_resource type="Script" uid="uid://cpbw5004s4hsa" path="res://settings_menu/settings_windows/SettingsWindow.cs" id="2_vin47"]
+[ext_resource type="Script" uid="uid://1a3becyxbm3b" path="res://settings/Setting.cs" id="4_03olj"]
+[ext_resource type="Resource" uid="uid://d3x1a28tyrj6y" path="res://settings/test_int.tres" id="5_03olj"]
+[ext_resource type="Resource" uid="uid://oemapd2aajul" path="res://settings/test_float.tres" id="5_fe0rv"]
+
+[node name="SettingsMenu" type="Control" unique_id=1193176566]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vlimw")
+
+[node name="TabContainer" type="TabContainer" parent="." unique_id=600528340]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Gameplay" type="GridContainer" parent="TabContainer" unique_id=1599502840]
+layout_mode = 2
+columns = 3
+script = ExtResource("2_vin47")
+Settings = Array[ExtResource("4_03olj")]([ExtResource("5_03olj"), ExtResource("5_fe0rv")])
+metadata/_tab_index = 0

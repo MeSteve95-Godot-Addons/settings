@@ -3,8 +3,10 @@ using System;
 
 [Tool]
 [GlobalClass]
-public partial class FloatSetting : Setting
+public partial class FloatSetting : Setting, ISerializationListener
 {
+	private bool _loadComplete;
+	
 	private float _value;
 	[Export] public float Value
 	{
@@ -14,7 +16,7 @@ public partial class FloatSetting : Setting
 			if (MinValue > MaxValue)
 				throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
 		
-			_value = Mathf.Clamp(value, MinValue, MaxValue);
+			_value = value;
 			EmitSignal(Setting.SignalName.ValueChanged);
 		}
 	}
@@ -28,7 +30,9 @@ public partial class FloatSetting : Setting
 		private set
 		{
 			_minValue = value;
-			RecalculateValue();
+			
+			if (_loadComplete)
+				SetValue(Value);
 		}
 	}
 	private float _maxValue;
@@ -38,12 +42,24 @@ public partial class FloatSetting : Setting
 		private set
 		{
 			_maxValue = value;
-			RecalculateValue();
+			
+			if (_loadComplete)
+				SetValue(Value);
 		}
 	}
-
-	private void RecalculateValue()
+	
+	public void OnBeforeSerialize() {}
+	public void OnAfterDeserialize()
 	{
-		Value = _value;
+		_loadComplete = true;
+		SetValue(DefaultValue);
+	}
+
+	public void SetValue(float value)
+	{
+		if (MinValue > MaxValue)
+			throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
+		
+		Value = Mathf.Clamp(value, MinValue, MaxValue);
 	}
 }

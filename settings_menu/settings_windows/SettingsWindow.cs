@@ -65,7 +65,6 @@ public partial class SettingsWindow : GridContainer
 
 	private static SpinBox CreateIntSettingDisplay(IntSetting intSetting)
 	{
-		GD.Print(intSetting.Value);
 		SpinBox intSpinBox = new()
 		{
 			MinValue = intSetting.MinValue,
@@ -78,7 +77,7 @@ public partial class SettingsWindow : GridContainer
 		{
 			int spinBoxValue = Mathf.RoundToInt(value);
 			if (spinBoxValue != intSetting.Value)
-				intSetting.Value = spinBoxValue;
+				intSetting.SetValue(spinBoxValue);
 		};
 
 		intSetting.ValueChanged += () =>

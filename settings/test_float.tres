@@ -4,6 +4,8 @@
 
 [resource]
 script = ExtResource("1_eyyvk")
+Value = 30.5
+DefaultValue = 30.5
 MinValue = -300.0
 MaxValue = 600.0
 Name = "Test Float"

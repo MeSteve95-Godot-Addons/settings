@@ -6,6 +6,7 @@
 script = ExtResource("3_7fyno")
 Value = 50
 DefaultValue = 50
+MinValue = -20
 MaxValue = 100
 Name = "Test Int"
 metadata/_custom_type_script = "uid://7b4nb71pvd1d"

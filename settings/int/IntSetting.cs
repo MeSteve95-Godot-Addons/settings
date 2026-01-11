@@ -3,18 +3,20 @@ using System;
 
 [Tool]
 [GlobalClass]
-public partial class IntSetting : Setting
+public partial class IntSetting : Setting, ISerializationListener
 {
+	private bool _loadComplete;
+	
 	private int _value;
 	[Export] public int Value
 	{
 		get => _value;
-		set
+		private set
 		{
-			if (MinValue > MaxValue)
-				throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
-		
-			_value = Mathf.Clamp(value, MinValue, MaxValue);
+			if (value == _value)
+				return;
+
+			_value = value;
 			EmitSignal(Setting.SignalName.ValueChanged);
 		}
 	}
@@ -28,7 +30,9 @@ public partial class IntSetting : Setting
 		private set
 		{
 			_minValue = value;
-			RecalculateValue();
+			
+			if (_loadComplete)
+				SetValue(Value);
 		}
 	}
 	private int _maxValue;
@@ -38,12 +42,24 @@ public partial class IntSetting : Setting
 		private set
 		{
 			_maxValue = value;
-			RecalculateValue();
+			
+			if (_loadComplete)
+				SetValue(Value);
 		}
 	}
 
-	private void RecalculateValue()
+	public void OnBeforeSerialize() {}
+	public void OnAfterDeserialize()
 	{
-		Value = _value;
+		_loadComplete = true;
+		SetValue(DefaultValue);
+	}
+
+	public void SetValue(int value)
+	{
+		if (MinValue > MaxValue)
+			throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
+		
+		Value = Mathf.Clamp(value, MinValue, MaxValue);
 	}
 }

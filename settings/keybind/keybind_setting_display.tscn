@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c4vrjl1ef6a22"]
+
+[ext_resource type="Script" uid="uid://cnhwdw8eaej5c" path="res://settings/keybind/KeyBindSettingDisplay.cs" id="1_bqct6"]
+[ext_resource type="PackedScene" uid="uid://csooddnvfso45" path="res://settings/keybind/keybind_bound_keys_panel.tscn" id="2_qm4ag"]
+[ext_resource type="Script" uid="uid://drmwyb0cq3" path="res://settings/keybind/KeybindRebindButton.cs" id="3_njyb1"]
+
+[node name="KeybindSettingDisplay" type="VBoxContainer" unique_id=1258478185 node_paths=PackedStringArray("_boundKeysPanelParent", "_bindNewInputButton")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bqct6")
+_boundKeysPanelScene = ExtResource("2_qm4ag")
+_boundKeysPanelParent = NodePath("BoundKeysDisplayManager")
+_bindNewInputButton = NodePath("BindNewInputButton")
+
+[node name="BoundKeysDisplayManager" type="VBoxContainer" parent="." unique_id=46960251]
+layout_mode = 2
+
+[node name="BindNewInputButton" type="Button" parent="." unique_id=500489975]
+layout_mode = 2
+script = ExtResource("3_njyb1")
+_defaultTooltipText = "Bind New Input"

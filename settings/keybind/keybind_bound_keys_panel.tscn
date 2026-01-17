@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://csooddnvfso45"]
+
+[ext_resource type="Script" uid="uid://mi5st3er3sgx" path="res://settings/keybind/KeybindBoundKeysPanel.cs" id="1_y06pe"]
+[ext_resource type="Script" uid="uid://drmwyb0cq3" path="res://settings/keybind/KeybindRebindButton.cs" id="2_8tbek"]
+
+[node name="KeybindBoundKeysPanel" type="HBoxContainer" unique_id=297637395 node_paths=PackedStringArray("_rebindButton", "_deleteButton")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_y06pe")
+_rebindButton = NodePath("RebindButton")
+_deleteButton = NodePath("DeleteBindingButton")
+
+[node name="RebindButton" type="Button" parent="." unique_id=1708565126]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<Input Event Name>"
+script = ExtResource("2_8tbek")
+DefaultTooltipText = "<Input Event Name>"
+
+[node name="DeleteBindingButton" type="Button" parent="." unique_id=189407896]
+layout_mode = 2
+text = "x"

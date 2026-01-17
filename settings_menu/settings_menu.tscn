@@ -9,7 +9,9 @@
 [ext_resource type="Resource" uid="uid://d3x1a28tyrj6y" path="res://settings/test_int.tres" id="5_03olj"]
 [ext_resource type="Resource" uid="uid://oemapd2aajul" path="res://settings/test_float.tres" id="5_fe0rv"]
 [ext_resource type="PackedScene" uid="uid://c3yftce8vc4ds" path="res://settings/float/float_setting_display.tscn" id="5_pfr73"]
-[ext_resource type="Script" uid="uid://cqux46kyvlixy" path="res://settings/KeyBindSetting.cs" id="6_wvj6e"]
+[ext_resource type="Script" uid="uid://cqux46kyvlixy" path="res://settings/keybind/KeyBindSetting.cs" id="6_wvj6e"]
+[ext_resource type="PackedScene" uid="uid://c4vrjl1ef6a22" path="res://settings/keybind/keybind_setting_display.tscn" id="7_jh50f"]
+[ext_resource type="Resource" uid="uid://boyn0mxpioomi" path="res://settings/test_keybind.tres" id="12_nnd8l"]
 
 [node name="SettingsMenu" type="Control" unique_id=1193176566]
 layout_mode = 3
@@ -22,7 +24,7 @@ script = ExtResource("1_vlimw")
 SettingToDisplayScene = Dictionary[Script, PackedScene]({
 ExtResource("2_ockcx"): ExtResource("3_jh50f"),
 ExtResource("4_nnd8l"): ExtResource("5_pfr73"),
-ExtResource("6_wvj6e"): null
+ExtResource("6_wvj6e"): ExtResource("7_jh50f")
 })
 
 [node name="TabContainer" type="TabContainer" parent="." unique_id=600528340]
@@ -38,5 +40,5 @@ current_tab = 0
 layout_mode = 2
 columns = 3
 script = ExtResource("2_vin47")
-Settings = Array[ExtResource("4_03olj")]([ExtResource("5_03olj"), ExtResource("5_fe0rv")])
+Settings = Array[ExtResource("4_03olj")]([ExtResource("5_03olj"), ExtResource("5_fe0rv"), ExtResource("12_nnd8l")])
 metadata/_tab_index = 0

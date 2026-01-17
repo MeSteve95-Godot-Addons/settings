@@ -88,8 +88,6 @@ public partial class FloatSettingDisplay : Control, ISettingDisplay
 
 	private void OnFloatSettingValueChanged(float newValue)
 	{
-		GD.Print("FloatSetting: " + newValue);
-		
 		if (Mathf.Abs(_slider.Value - newValue) > 1e-6)
 			_slider.Value = newValue;
 			

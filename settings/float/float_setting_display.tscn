@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c3yftce8vc4ds"]
+
+[ext_resource type="Script" uid="uid://cx1y8n12ws0sx" path="res://settings/float/FloatSettingDisplay.cs" id="1_35sjn"]
+
+[node name="FloatSettingDisplay" type="HBoxContainer" unique_id=1511358821 node_paths=PackedStringArray("_spinBox", "_slider")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+script = ExtResource("1_35sjn")
+_spinBox = NodePath("SpinBox")
+_slider = NodePath("HSlider")
+
+[node name="SpinBox" type="SpinBox" parent="." unique_id=714143271]
+layout_mode = 2
+step = 0.01
+
+[node name="HSlider" type="HSlider" parent="." unique_id=1291837159]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+step = 0.01
+tick_count = 10

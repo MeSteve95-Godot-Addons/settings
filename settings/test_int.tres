@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("3_7fyno")
-Value = 50
+Value = 32
 DefaultValue = 50
 MinValue = -20
 MaxValue = 100

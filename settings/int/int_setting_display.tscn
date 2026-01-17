@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://co7tlspka5voa"]
+
+[ext_resource type="Script" uid="uid://b6mc6mmomhw8r" path="res://settings/int/IntSettingDisplay.cs" id="1_mowto"]
+
+[node name="IntSettingDisplay" type="SpinBox" unique_id=1230862997]
+rounded = true
+script = ExtResource("1_mowto")

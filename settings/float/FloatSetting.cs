@@ -5,19 +5,18 @@ using System;
 [GlobalClass]
 public partial class FloatSetting : Setting, ISerializationListener
 {
+	[Signal] public delegate void ValueChangedEventHandler(float newValue);
+	
 	private bool _loadComplete;
 	
 	private float _value;
 	[Export] public float Value
 	{
 		get => _value;
-		set
+		private set
 		{
-			if (MinValue > MaxValue)
-				throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
-		
 			_value = value;
-			EmitSignal(Setting.SignalName.ValueChanged);
+			EmitSignal(SignalName.ValueChanged, _value);
 		}
 	}
 
@@ -55,11 +54,11 @@ public partial class FloatSetting : Setting, ISerializationListener
 		SetValue(DefaultValue);
 	}
 
-	public void SetValue(float value)
+	public void SetValue(float newValue)
 	{
 		if (MinValue > MaxValue)
 			throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
 		
-		Value = Mathf.Clamp(value, MinValue, MaxValue);
+		Value = Mathf.Clamp(newValue, MinValue, MaxValue);
 	}
 }

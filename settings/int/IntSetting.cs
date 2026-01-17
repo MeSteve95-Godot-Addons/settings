@@ -5,6 +5,8 @@ using System;
 [GlobalClass]
 public partial class IntSetting : Setting, ISerializationListener
 {
+	[Signal] public delegate void ValueChangedEventHandler(int newValue);
+	
 	private bool _loadComplete;
 	
 	private int _value;
@@ -17,7 +19,7 @@ public partial class IntSetting : Setting, ISerializationListener
 				return;
 
 			_value = value;
-			EmitSignal(Setting.SignalName.ValueChanged);
+			EmitSignal(SignalName.ValueChanged, _value);
 		}
 	}
 
@@ -55,11 +57,11 @@ public partial class IntSetting : Setting, ISerializationListener
 		SetValue(DefaultValue);
 	}
 
-	public void SetValue(int value)
+	public void SetValue(int newValue)
 	{
 		if (MinValue > MaxValue)
 			throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
 		
-		Value = Mathf.Clamp(value, MinValue, MaxValue);
+		Value = Mathf.Clamp(newValue, MinValue, MaxValue);
 	}
 }

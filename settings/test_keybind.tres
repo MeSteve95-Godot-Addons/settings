@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="KeyBindSetting" format=3 uid="uid://boyn0mxpioomi"]
+
+[ext_resource type="Script" uid="uid://cqux46kyvlixy" path="res://settings/KeyBindSetting.cs" id="1_s81re"]
+
+[resource]
+script = ExtResource("1_s81re")
+InputActionName = &"test_input_action"
+ExportedInputEvents = []
+Name = "Test Keybind"
+metadata/_custom_type_script = "uid://cqux46kyvlixy"

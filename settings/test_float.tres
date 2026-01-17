@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_eyyvk")
-Value = 30.5
+Value = 30.499992
 DefaultValue = 30.5
 MinValue = -300.0
 MaxValue = 600.0

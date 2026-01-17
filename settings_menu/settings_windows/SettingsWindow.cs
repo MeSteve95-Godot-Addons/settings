@@ -1,6 +1,5 @@
 using Godot;
 using Godot.Collections;
-using System;
 
 [Tool]
 [GlobalClass]
@@ -11,7 +10,7 @@ public partial class SettingsWindow : GridContainer
 
 	public override void _Ready()
 	{
-		UpdateWindow();
+		CallDeferred(MethodName.UpdateWindow);
 	}
 
 	private void UpdateWindow()
@@ -32,14 +31,11 @@ public partial class SettingsWindow : GridContainer
 			AddChild(separator);
 			separator.Owner = this;
 
-			Control settingDisplay = setting switch
-			{
-				IntSetting intSetting => CreateIntSettingDisplay(intSetting),
-				FloatSetting floatSetting => CreateFloatSettingDisplay(floatSetting),
-				_ => throw new ArgumentException($"Unsupported setting type: {setting.GetType()}."),
-			};
+			Control settingDisplay = SettingsMenu.Instance.GetSettingDisplayScene(setting).Instantiate<Control>();
 			AddChild(settingDisplay);
 			settingDisplay.Owner = this;
+
+			((ISettingDisplay)settingDisplay).SetSetting(setting);
 		}
 	}
 
@@ -61,92 +57,5 @@ public partial class SettingsWindow : GridContainer
 			SizeFlagsHorizontal = SizeFlags.ShrinkBegin,
 		};
 		return separator;
-	}
-
-	private static SpinBox CreateIntSettingDisplay(IntSetting intSetting)
-	{
-		SpinBox intSpinBox = new()
-		{
-			MinValue = intSetting.MinValue,
-			MaxValue = intSetting.MaxValue,
-			Value = intSetting.Value,
-			Rounded = true,
-		};
-
-		intSpinBox.ValueChanged += value =>
-		{
-			int spinBoxValue = Mathf.RoundToInt(value);
-			if (spinBoxValue != intSetting.Value)
-				intSetting.SetValue(spinBoxValue);
-		};
-
-		intSetting.ValueChanged += () =>
-		{
-			int spinBoxValue = Mathf.RoundToInt(intSpinBox.Value);
-			if (intSetting.Value != spinBoxValue)
-				intSpinBox.Value = intSetting.Value;
-		};
-
-		return intSpinBox;
-	}
-
-	private static HBoxContainer CreateFloatSettingDisplay(FloatSetting floatSetting)
-	{
-		const float step = 0.01f;
-		
-		HBoxContainer hBoxContainer = new()
-		{
-			SizeFlagsHorizontal = SizeFlags.ExpandFill,
-		};
-
-		SpinBox spinBox = new()
-		{
-			MinValue = floatSetting.MinValue,
-			MaxValue = floatSetting.MaxValue,
-			Step = step,
-			Value = floatSetting.Value,
-		};
-		hBoxContainer.AddChild(spinBox);
-		spinBox.Owner = hBoxContainer;
-
-		HSlider hSlider = new()
-		{
-			TickCount = 10,
-			MinValue = floatSetting.MinValue,
-			MaxValue = floatSetting.MaxValue,
-			Step = step,
-			Value = floatSetting.Value,
-			SizeFlagsHorizontal = SizeFlags.ExpandFill,
-		};
-		hBoxContainer.AddChild(hSlider);
-		hSlider.Owner = hBoxContainer;
-		
-		spinBox.ValueChanged += value =>
-		{
-			if (Math.Abs(value - floatSetting.Value) > 1e-6)
-				floatSetting.Value = (float)value;
-			
-			if (Math.Abs(value - hSlider.Value) > 1e-6)
-				hSlider.Value = floatSetting.Value;
-		};
-		hSlider.ValueChanged += value =>
-		{
-			if (Math.Abs(value - floatSetting.Value) > 1e-6)
-				floatSetting.Value = (float)value;
-			
-			if (Math.Abs(value - spinBox.Value) > 1e-6)
-				spinBox.Value = floatSetting.Value;
-		};
-
-		floatSetting.ValueChanged += () =>
-		{
-			if (Math.Abs(floatSetting.Value - hSlider.Value) > 1e-6)
-				hSlider.Value = floatSetting.Value;
-			
-			if (Math.Abs(floatSetting.Value - spinBox.Value) > 1e-6)
-				spinBox.Value = floatSetting.Value;
-		};
-		
-		return hBoxContainer;
 	}
 }

@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c4vrjl1ef6a22"]
 
-[ext_resource type="Script" uid="uid://cnhwdw8eaej5c" path="res://settings/keybind/KeyBindSettingDisplay.cs" id="1_bqct6"]
-[ext_resource type="PackedScene" uid="uid://csooddnvfso45" path="res://settings/keybind/keybind_bound_keys_panel.tscn" id="2_qm4ag"]
-[ext_resource type="Script" uid="uid://drmwyb0cq3" path="res://settings/keybind/KeybindRebindButton.cs" id="3_njyb1"]
+[ext_resource type="Script" uid="uid://cnhwdw8eaej5c" path="res://addons/settings/setting_types/keybind/KeyBindSettingDisplay.cs" id="1_bqct6"]
+[ext_resource type="PackedScene" uid="uid://csooddnvfso45" path="res://addons/settings/setting_types/keybind/keybind_bound_keys_panel.tscn" id="2_qm4ag"]
+[ext_resource type="Script" uid="uid://drmwyb0cq3" path="res://addons/settings/setting_types/keybind/KeybindRebindButton.cs" id="3_njyb1"]
 
 [node name="KeybindSettingDisplay" type="VBoxContainer" unique_id=1258478185 node_paths=PackedStringArray("_boundKeysPanelParent", "_bindNewInputButton")]
 anchors_preset = 15

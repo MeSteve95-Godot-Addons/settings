@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="KeyBindSetting" format=3 uid="uid://boyn0mxpioomi"]
 
-[ext_resource type="Script" uid="uid://cqux46kyvlixy" path="res://settings/keybind/KeyBindSetting.cs" id="1_s81re"]
+[ext_resource type="Script" uid="uid://cqux46kyvlixy" path="res://addons/settings/setting_types/keybind/KeyBindSetting.cs" id="1_s81re"]
 
 [resource]
 script = ExtResource("1_s81re")

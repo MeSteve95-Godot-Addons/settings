@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="FloatSetting" format=3 uid="uid://oemapd2aajul"]
 
-[ext_resource type="Script" uid="uid://d1uh38s7tt857" path="res://settings/float/FloatSetting.cs" id="1_eyyvk"]
+[ext_resource type="Script" uid="uid://d1uh38s7tt857" path="res://addons/settings/setting_types/float/FloatSetting.cs" id="1_eyyvk"]
 
 [resource]
 script = ExtResource("1_eyyvk")

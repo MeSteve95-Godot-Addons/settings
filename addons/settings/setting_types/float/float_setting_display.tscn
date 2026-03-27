@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c3yftce8vc4ds"]
 
-[ext_resource type="Script" uid="uid://cx1y8n12ws0sx" path="res://settings/float/FloatSettingDisplay.cs" id="1_35sjn"]
+[ext_resource type="Script" uid="uid://cx1y8n12ws0sx" path="res://addons/settings/setting_types/float/FloatSettingDisplay.cs" id="1_35sjn"]
 
 [node name="FloatSettingDisplay" type="HBoxContainer" unique_id=1511358821 node_paths=PackedStringArray("_spinBox", "_slider")]
 anchors_preset = 15

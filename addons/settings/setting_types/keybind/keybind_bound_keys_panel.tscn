@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://csooddnvfso45"]
 
-[ext_resource type="Script" uid="uid://mi5st3er3sgx" path="res://settings/keybind/KeybindBoundKeysPanel.cs" id="1_y06pe"]
-[ext_resource type="Script" uid="uid://drmwyb0cq3" path="res://settings/keybind/KeybindRebindButton.cs" id="2_8tbek"]
+[ext_resource type="Script" uid="uid://mi5st3er3sgx" path="res://addons/settings/setting_types/keybind/KeybindBoundKeysPanel.cs" id="1_y06pe"]
+[ext_resource type="Script" uid="uid://drmwyb0cq3" path="res://addons/settings/setting_types/keybind/KeybindRebindButton.cs" id="2_8tbek"]
 
 [node name="KeybindBoundKeysPanel" type="HBoxContainer" unique_id=297637395 node_paths=PackedStringArray("_rebindButton", "_deleteButton")]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="IntSetting" format=3 uid="uid://d3x1a28tyrj6y"]
 
-[ext_resource type="Script" uid="uid://7b4nb71pvd1d" path="res://settings/int/IntSetting.cs" id="3_7fyno"]
+[ext_resource type="Script" uid="uid://7b4nb71pvd1d" path="res://addons/settings/setting_types/int/IntSetting.cs" id="3_7fyno"]
 
 [resource]
 script = ExtResource("3_7fyno")

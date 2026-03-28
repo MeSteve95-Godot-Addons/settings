@@ -6,7 +6,7 @@ using System;
 [GlobalClass]
 public partial class KeyBindSetting : Setting
 {
-	[Export] public string InputActionName { get; private set; }
+	[Export] public StringName InputActionName { get; private set; }
 	
 	public Array<InputEvent> InputEvents => InputMap.HasAction(InputActionName)
 		? InputMap.ActionGetEvents(InputActionName)

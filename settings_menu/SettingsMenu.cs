@@ -9,6 +9,8 @@ public partial class SettingsMenu : Control
 	
 	[Export] public Dictionary<Script, PackedScene> SettingToDisplayScene { get; private set; } = new();
 
+	[Export] public float SectionVerticalSeparation = 12.0f;
+
 	public override void _Ready()
 	{
 		if (Instance is not null && !Engine.IsEditorHint())

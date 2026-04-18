@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b3orob676ubck"]
+
+[ext_resource type="Script" uid="uid://behu8akncsl82" path="res://addons/settings/setting_types/enum/EnumSettingDisplay.cs" id="1_ksq8t"]
+
+[node name="EnumSettingDisplay" type="OptionButton" unique_id=1396708023]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ksq8t")

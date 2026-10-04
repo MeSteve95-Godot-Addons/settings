@@ -23,7 +23,7 @@ public partial class SettingsWindow : GridContainer
 		{
 			parentNode = parentNode.GetParent();
 			if (parentNode is null)
-				throw new NullReferenceException("SettingsWindow not a child of a SettingsMenu.")
+				throw new NullReferenceException("SettingsWindow not a child of a SettingsMenu.");
 		}
 		_settingsMenu = parentNode as SettingsMenu;
 

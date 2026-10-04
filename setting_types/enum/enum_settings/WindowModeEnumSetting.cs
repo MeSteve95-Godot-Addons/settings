@@ -3,7 +3,7 @@ using Godot.Collections;
 using System;
 using System.Linq;
 
-namespace smars.addons.settings;
+namespace Smars.Addons.Settings;
 
 public partial class WindowModeEnumSetting : EnumSetting
 {

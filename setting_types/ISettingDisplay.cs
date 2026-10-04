@@ -1,4 +1,4 @@
-﻿namespace smars.addons.settings;
+﻿namespace Smars.Addons.Settings;
 
 public interface ISettingDisplay
 {

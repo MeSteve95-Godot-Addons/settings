@@ -1,6 +1,6 @@
 using Godot;
 
-namespace smars.addons.settings;
+namespace Smars.Addons.Settings;
 
 [Tool]
 public partial class FloatSettingDisplay : Control, ISettingDisplay

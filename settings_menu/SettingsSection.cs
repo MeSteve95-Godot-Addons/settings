@@ -1,7 +1,7 @@
 using Godot;
 using Godot.Collections;
 
-namespace smars.addons.settings;
+namespace Smars.Addons.Settings;
 
 [Tool]
 [GlobalClass]

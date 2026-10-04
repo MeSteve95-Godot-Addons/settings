@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-namespace smars.addons.settings;
+namespace Smars.Addons.Settings;
 
 [Tool]
 public partial class KeybindBoundKeysPanel : Control

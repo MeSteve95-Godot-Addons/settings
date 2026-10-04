@@ -2,7 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 
-namespace smars.addons.settings;
+namespace Smars.Addons.Settings;
 
 [Tool]
 [GlobalClass]

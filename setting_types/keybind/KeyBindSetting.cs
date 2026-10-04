@@ -2,6 +2,8 @@ using Godot;
 using Godot.Collections;
 using System;
 
+namespace smars.addons.settings;
+
 [Tool]
 [GlobalClass]
 public partial class KeyBindSetting : Setting

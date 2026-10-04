@@ -2,24 +2,26 @@ using Godot;
 using Godot.Collections;
 using System;
 
+namespace smars.addons.settings;
+
 [Tool]
 [GlobalClass]
 public partial class SettingsWindow : GridContainer
 {
 	[Export] public Array<SettingsSection> SettingsSections { get; private set; } = [];
 	[ExportToolButton("Update Window")] private Callable UpdateWindowButton => Callable.From(UpdateWindow);
-	
+
 	private SettingsMenu _settingsMenu;
-	
+
 	public override void _Ready()
 	{
 		Columns = 3;
-		
+
 		// TODO: Replace with inspector warning
 		_settingsMenu = this.GetParentByType<SettingsMenu>();
 		if (_settingsMenu is null)
 			throw new NullReferenceException("SettingsWindow not a child of a SettingsMenu.");
-		
+
 		CallDeferred(MethodName.UpdateWindow);
 	}
 
@@ -56,7 +58,7 @@ public partial class SettingsWindow : GridContainer
 			Text = "[b]" + sectionName + "[/b]",
 			FitContent = true,
 		};
-		
+
 		parent.AddChild(headingLabel);
 		headingLabel.Owner = parent;
 		return headingLabel;
@@ -71,7 +73,7 @@ public partial class SettingsWindow : GridContainer
 		spacer.Owner = parent;
 		return spacer;
 	}
-	
+
 	private static Label CreateSettingNameLabel(Setting setting, Node parent)
 	{
 		Label nameLabel = new()

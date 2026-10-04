@@ -1,5 +1,7 @@
 using Godot;
 
+namespace smars.addons.settings;
+
 [Tool]
 public partial class KeyBindSettingDisplay : Control, ISettingDisplay
 {
@@ -33,17 +35,17 @@ public partial class KeyBindSettingDisplay : Control, ISettingDisplay
 		FreeBoundKeyPanels();
 		CreateBoundKeysPanel();
 	}
-	
+
 	private void FreeBoundKeyPanels()
 	{
 		if (_boundKeysPanelParent is null)
 			return;
-		
+
 		foreach (Node child in _boundKeysPanelParent.GetChildren())
 		{
 			if (child is not KeybindBoundKeysPanel boundKeysPanel)
 				continue;
-			
+
 			boundKeysPanel.DeleteInputEvent -= OnDeleteInputEvent;
 			boundKeysPanel.QueueFree();
 		}

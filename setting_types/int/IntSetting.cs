@@ -1,14 +1,16 @@
 using Godot;
 using System;
 
+namespace smars.addons.settings;
+
 [Tool]
 [GlobalClass]
 public partial class IntSetting : Setting, ISerializationListener
 {
 	[Signal] public delegate void ValueChangedEventHandler(int newValue);
-	
+
 	private bool _loadComplete;
-	
+
 	private int _value;
 	[Export] public int Value
 	{
@@ -32,7 +34,7 @@ public partial class IntSetting : Setting, ISerializationListener
 		private set
 		{
 			_minValue = value;
-			
+
 			if (_loadComplete)
 				SetValue(Value);
 		}
@@ -44,7 +46,7 @@ public partial class IntSetting : Setting, ISerializationListener
 		private set
 		{
 			_maxValue = value;
-			
+
 			if (_loadComplete)
 				SetValue(Value);
 		}
@@ -61,7 +63,7 @@ public partial class IntSetting : Setting, ISerializationListener
 	{
 		if (MinValue > MaxValue)
 			throw new Exception($"Invalid constraints. MinValue ({MinValue}) must be less than MaxValue ({MaxValue}).");
-		
+
 		Value = Mathf.Clamp(newValue, MinValue, MaxValue);
 	}
 }

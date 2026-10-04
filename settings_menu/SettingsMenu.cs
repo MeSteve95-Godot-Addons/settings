@@ -2,11 +2,13 @@ using Godot;
 using Godot.Collections;
 using System;
 
+namespace smars.addons.settings;
+
 [Tool]
 public partial class SettingsMenu : Control
 {
 	public static SettingsMenu Instance { get; private set; }
-	
+
 	[Export] public Dictionary<Script, PackedScene> SettingToDisplayScene { get; private set; } = new();
 
 	[Export] public float SectionVerticalSeparation = 12.0f;

@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace smars.addons.settings;
+
 [Tool]
 public partial class EnumSettingDisplay : OptionButton, ISettingDisplay
 {
@@ -32,18 +34,18 @@ public partial class EnumSettingDisplay : OptionButton, ISettingDisplay
 		{
 			if (EnumSetting.IgnoredIds.Contains(id))
 				continue;
-			
+
 			AddItem(label, id);
 		}
 
 		Selected = EnumSetting.SelectedId == -1 ? EnumSetting.DefaultSelectedId : EnumSetting.SelectedId;
 	}
-	
+
 	private void OnItemSelected(long index)
 	{
 		if (EnumSetting is null)
 			return;
-		
+
 		EnumSetting.SelectedId = (int)index;
 	}
 }

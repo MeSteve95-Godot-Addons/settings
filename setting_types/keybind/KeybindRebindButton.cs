@@ -1,10 +1,12 @@
 using Godot;
 
+namespace smars.addons.settings;
+
 [Tool]
 public partial class KeybindRebindButton : Button
 {
 	[Signal] public delegate void InputEventAssignedEventHandler(InputEvent inputEvent);
-	
+
 	private string _defaultTooltipText;
 	[Export]
 	public string DefaultTooltipText
@@ -16,9 +18,9 @@ public partial class KeybindRebindButton : Button
 			Text = _defaultTooltipText;
 		}
 	}
-	
+
 	private bool _isRebinding;
-	
+
 	private const string REBINDING_TOOLTIP_TEXT = "Press new button to rebind...";
 
 	public override void _Ready()
@@ -34,7 +36,7 @@ public partial class KeybindRebindButton : Button
 		// Ignore certain types of input.
 		if (@event is InputEventMouseMotion or InputEventJoypadMotion)
 			return;
-		
+
 		_isRebinding = false;
 		Disabled = false;
 		Text = _defaultTooltipText;
@@ -45,7 +47,7 @@ public partial class KeybindRebindButton : Button
 	{
 		if (_isRebinding)
 			return;
-		
+
 		_isRebinding = true;
 		Disabled = true;
 		Text = REBINDING_TOOLTIP_TEXT;

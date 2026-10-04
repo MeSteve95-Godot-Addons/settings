@@ -1,5 +1,7 @@
 using Godot;
 
+namespace smars.addons.settings;
+
 [Tool]
 public partial class IntSettingDisplay : SpinBox, ISettingDisplay
 {

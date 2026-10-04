@@ -3,6 +3,8 @@ using Godot.Collections;
 using System;
 using System.Linq;
 
+namespace smars.addons.settings;
+
 public partial class WindowModeEnumSetting : EnumSetting
 {
 	public override Dictionary<int, string> IdToLabel { get; protected set; } = new(

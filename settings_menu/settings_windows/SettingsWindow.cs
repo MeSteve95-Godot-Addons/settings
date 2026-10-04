@@ -18,9 +18,14 @@ public partial class SettingsWindow : GridContainer
 		Columns = 3;
 
 		// TODO: Replace with inspector warning
-		_settingsMenu = this.GetParentByType<SettingsMenu>();
-		if (_settingsMenu is null)
-			throw new NullReferenceException("SettingsWindow not a child of a SettingsMenu.");
+		Node parentNode = GetParent();
+		while (parentNode is not SettingsMenu)
+		{
+			parentNode = parentNode.GetParent();
+			if (parentNode is null)
+				throw new NullReferenceException("SettingsWindow not a child of a SettingsMenu.")
+		}
+		_settingsMenu = parentNode as SettingsMenu;
 
 		CallDeferred(MethodName.UpdateWindow);
 	}
